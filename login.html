@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to your GlobalMart account to access member benefits, track orders, and manage your profile.">
+    <title>Login - GlobalMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-wrapper">
+            <!-- Language Selector -->
+            <div class="language-selector login-language">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="ms">Bahasa Malaysia</option>
+                </select>
+            </div>
+
+            <!-- Login Form -->
+            <div class="login-card">
+                <div class="login-header">
+                    <a href="index.html" class="logo-link">
+                        <i class="fas fa-globe-asia"></i>
+                        <span class="logo-text" data-en="GlobalMart" data-ms="GlobalMart"></span>
+                    </a>
+                    <h1 data-en="Welcome Back" data-ms="Selamat Kembali"></h1>
+                    <p data-en="Sign in to your account to continue" data-ms="Daftar masuk ke akaun anda untuk teruskan"></p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email" data-en="Email Address" data-ms="Alamat Emel"></label>
+                        <input type="email" id="email" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" data-en="Password" data-ms="Kata Laluan"></label>
+                        <div class="password-input">
+                            <input type="password" id="password" required 
+                                   data-en="Enter your password" 
+                                   data-ms="Masukkan kata laluan anda">
+                            <button type="button" class="toggle-password" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="rememberMe">
+                            <span data-en="Remember me" data-ms="Ingat saya"></span>
+                        </label>
+                        <a href="#" class="forgot-link" data-en="Forgot password?" data-ms="Lupa kata laluan?"></a>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="userType" class="form-select">
+                            <option value="member" data-en="Member" data-ms="Ahli"></option>
+                            <option value="admin" data-en="Administrator" data-ms="Pentadbir"></option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-block">
+                        <span data-en="Sign In" data-ms="Daftar Masuk"></span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                    <div class="login-divider">
+                        <span data-en="Or continue with" data-ms="Atau teruskan dengan"></span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span data-en="Google" data-ms="Google"></span>
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook"></i>
+                            <span data-en="Facebook" data-ms="Facebook"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="login-footer">
+                    <p data-en="Don't have an account?" data-ms="Tiada akaun?"></p>
+                    <a href="enrollment.html" class="register-link" data-en="Create free account" data-ms="Buat akaun percuma"></a>
+                </div>
+            </div>
+
+            <!-- Login Info -->
+            <div class="login-info">
+                <h2 data-en="GlobalMart Benefits" data-ms="Kelebihan GlobalMart"></h2>
+                <div class="benefits">
+                    <div class="benefit">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div>
+                            <h3 data-en="Shop Anywhere" data-ms="Beli di Mana-mana"></h3>
+                            <p data-en="Access millions of products from global markets" data-ms="Akses berjuta-juta produk dari pasaran global"></p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3 data-en="Secure Payments" data-ms="Pembayaran Selamat"></h3>
+                            <p data-en="Safe transactions with ToyibPay protection" data-ms="Transaksi selamat dengan perlindungan ToyibPay"></p>
+                        </div>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <h3 data-en="Fast Delivery" data-ms="Penghantaran Pantas"></h3>
+                            <p data-en="Reliable shipping with real-time tracking" data-ms="Penghantaran boleh dipercayai dengan penjejakan masa nyata"></p>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html" class="btn-outline btn-block" data-en="Back to Home" data-ms="Kembali ke Laman Utama"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>

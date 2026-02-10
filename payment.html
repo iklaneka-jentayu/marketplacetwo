@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure payment with ToyibPay - GlobalMart's trusted payment gateway.">
+    <title>Payment - GlobalMart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="payment-container">
+        <!-- Language Selector -->
+        <div class="language-selector payment-language">
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="ms">Bahasa Malaysia</option>
+            </select>
+        </div>
+
+        <div class="payment-wrapper">
+            <!-- Payment Summary -->
+            <div class="payment-summary">
+                <div class="summary-header">
+                    <a href="index.html" class="logo-link">
+                        <i class="fas fa-globe-asia"></i>
+                        <span class="logo-text" data-en="GlobalMart" data-ms="GlobalMart"></span>
+                    </a>
+                    <h1 data-en="Payment Summary" data-ms="Ringkasan Pembayaran"></h1>
+                </div>
+
+                <div class="order-details">
+                    <div class="detail-item">
+                        <span class="detail-label" data-en="Order ID:" data-ms="ID Pesanan:"></span>
+                        <span class="detail-value" id="orderId">GM-2024-001234</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label" data-en="Date:" data-ms="Tarikh:"></span>
+                        <span class="detail-value" id="orderDate">2024-01-15</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label" data-en="Description:" data-ms="Penerangan:"></span>
+                        <span class="detail-value" id="orderDescription" data-en="Premium Membership - 1 Month" data-ms="Keahlian Premium - 1 Bulan"></span>
+                    </div>
+                </div>
+
+                <div class="amount-breakdown">
+                    <div class="breakdown-item">
+                        <span data-en="Subtotal" data-ms="Jumlah Kecil"></span>
+                        <span>RM <span id="subtotal">49.00</span></span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span data-en="Tax (6%)" data-ms="Cukai (6%)"></span>
+                        <span>RM <span id="tax">2.94</span></span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span data-en="Service Fee" data-ms="Yuran Perkhidmatan"></span>
+                        <span>RM <span id="serviceFee">1.00</span></span>
+                    </div>
+                    <div class="breakdown-item total">
+                        <strong data-en="Total Amount" data-ms="Jumlah Keseluruhan"></strong>
+                        <strong>RM <span id="totalAmount">52.94</span></strong>
+                    </div>
+                </div>
+
+                <div class="security-info">
+                    <div class="security-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span data-en="Secure payment by ToyibPay" data-ms="Pembayaran selamat oleh ToyibPay"></span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-lock"></i>
+                        <span data-en="Your data is protected" data-ms="Data anda dilindungi"></span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-clock"></i>
+                        <span data-en="Instant confirmation" data-ms="Pengesahan serta-merta"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-form">
+                <h2 data-en="Payment Details" data-ms="Butiran Pembayaran"></h2>
+                
+                <div class="payment-method-selector">
+                    <div class="method-tabs">
+                        <button class="method-tab active" data-method="toyibpay">
+                            <i class="fas fa-credit-card"></i>
+                            <span>ToyibPay</span>
+                        </button>
+                        <button class="method-tab" data-method="card">
+                            <i class="fab fa-cc-visa"></i>
+                            <span data-en="Card" data-ms="Kad"></span>
+                        </button>
+                        <button class="method-tab" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <span data-en="Bank" data-ms="Bank"></span>
+                        </button>
+                    </div>
+
+                    <!-- ToyibPay Form -->
+                    <div class="method-form active" id="toyibpayForm">
+                        <div class="form-group">
+                            <label for="toyibpayEmail" data-en="ToyibPay Email" data-ms="Emel ToyibPay"></label>
+                            <input type="email" id="toyibpayEmail" required 
+                                   placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="toyibpayPIN" data-en="ToyibPay PIN" data-ms="PIN ToyibPay"></label>
+                            <div class="pin-input">
+                                <input type="password" id="toyibpayPIN" required 
+                                       maxlength="6" placeholder="••••••">
+                                <button type="button" class="toggle-pin">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox">
+                                <input type="checkbox" id="saveToyibpay" checked>
+                                <span data-en="Save ToyibPay for future payments" data-ms="Simpan ToyibPay untuk pembayaran masa depan"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Card Form -->
+                    <div class="method-form" id="cardForm">
+                        <div class="form-group">
+                            <label for="cardNumber" data-en="Card Number" data-ms="Nombor Kad"></label>
+                            <input type="text" id="cardNumber" 
+                                   placeholder="1234 5678 9012 3456"
+                                   maxlength="19">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry" data-en="Expiry Date" data-ms="Tarikh Luput"></label>
+                                <input type="text" id="cardExpiry" 
+                                       placeholder="MM/YY"
+                                       maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCVC" data-en="CVC" data-ms="CVC"></label>
+                                <input type="text" id="cardCVC" 
+                                       placeholder="123"
+                                       maxlength="3">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardName" data-en="Name on Card" data-ms="Nama pada Kad"></label>
+                            <input type="text" id="cardName" 
+                                   data-en="Enter name as on card" 
+                                   data-ms="Masukkan nama seperti pada kad">
+                        </div>
+                    </div>
+
+                    <!-- Bank Transfer Form -->
+                    <div class="method-form" id="bankForm">
+                        <div class="bank-info">
+                            <h3 data-en="Bank Transfer Details" data-ms="Butiran Pindahan Bank"></h3>
+                            <div class="bank-details">
+                                <div class="bank-detail">
+                                    <span data-en="Bank Name:" data-ms="Nama Bank:"></span>
+                                    <strong>GlobalBank Malaysia</strong>
+                                </div>
+                                <div class="bank-detail">
+                                    <span data-en="Account Name:" data-ms="Nama Akaun:"></span>
+                                    <strong>GlobalMart Sdn Bhd</strong>
+                                </div>
+                                <div class="bank-detail">
+                                    <span data-en="Account Number:" data-ms="Nombor Akaun:"></span>
+                                    <strong>1234-5678-9012</strong>
+                                </div>
+                                <div class="bank-detail">
+                                    <span data-en="Reference:" data-ms="Rujukan:"></span>
+                                    <strong id="bankReference">GM-2024-001234</strong>
+                                </div>
+                            </div>
+                            <p class="bank-note" data-en="Please include the reference number when making transfer. Payment will be confirmed within 1-2 business days." data-ms="Sila sertakan nombor rujukan semasa membuat pindahan. Pembayaran akan disahkan dalam 1-2 hari bekerja."></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-actions">
+                    <button class="btn-outline" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span data-en="Back" data-ms="Kembali"></span>
+                    </button>
+                    <button class="btn-primary" id="processPaymentBtn">
+                        <span data-en="Pay Now" data-ms="Bayar Sekarang"></span>
+                        <i class="fas fa-lock"></i>
+                    </button>
+                </div>
+
+                <div class="payment-security">
+                    <div class="security-badges">
+                        <img src="https://img.icons8.com/color/48/000000/ssl-logo.png" alt="SSL Secure">
+                        <img src="https://img.icons8.com/color/48/000000/security-checked.png" alt="Security Checked">
+                        <img src="https://img.icons8.com/color/48/000000/security-configuration.png" alt="PCI DSS">
+                    </div>
+                    <p class="security-note" data-en="Your payment is secure and encrypted. We never store your card details." data-ms="Pembayaran anda selamat dan disulitkan. Kami tidak pernah menyimpan butiran kad anda."></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Status Modal -->
+        <div class="modal" id="paymentStatusModal">
+            <div class="modal-content status-modal">
+                <div class="status-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 data-en="Payment Successful!" data-ms="Pembayaran Berjaya!"></h2>
+                <p class="status-message" data-en="Your payment has been processed successfully." data-ms="Pembayaran anda telah berjaya diproses."></p>
+                
+                <div class="status-details">
+                    <div class="status-detail">
+                        <span data-en="Transaction ID:" data-ms="ID Transaksi:"></span>
+                        <strong id="transactionId">TXN-2024-001234</strong>
+                    </div>
+                    <div class="status-detail">
+                        <span data-en="Amount:" data-ms="Amaun:"></span>
+                        <strong>RM <span id="paidAmount">52.94</span></strong>
+                    </div>
+                    <div class="status-detail">
+                        <span data-en="Date:" data-ms="Tarikh:"></span>
+                        <strong id="paymentDate">2024-01-15 14:30:45</strong>
+                    </div>
+                </div>
+
+                <div class="status-actions">
+                    <a href="index.html" class="btn-primary">
+                        <span data-en="Continue Shopping" data-ms="Teruskan Membeli-belah"></span>
+                    </a>
+                    <a href="#" class="btn-outline">
+                        <i class="fas fa-download"></i>
+                        <span data-en="Download Receipt" data-ms="Muat Turun Resit"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/payment.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>
